@@ -1,6 +1,6 @@
 ---
 title: "Classwork Activity"
-author: "Enter Your Name"
+author: "Adam Cooper"
 output: html_notebook
 ---
 
@@ -27,7 +27,9 @@ head(students)
 
 ```{r}
 # Remove the Name column
-
+Students_Clean <- students %>%
+  select(-Name)
+students
 ```
 
 
@@ -35,6 +37,8 @@ head(students)
 Why might someone drop a column like name or ID from a dataset?
 
 ### Answer:
+
+Because if you're only checking for if they are present or attendening, you don't need to check for name and ID.
 
 ## Step 3: Visualize
 ```{r}
@@ -54,24 +58,35 @@ ggplot(Students_Clean, aes(x = Major, y = Satisfaction, fill = Major)) +
 
 
 ## Step 4: Explain: Write 2–3 sentences each
-
+This uses the ggplot2 library to plot the satisfaction of the different majors. It creates a box plot to accurately represent the boundries of the sample.
 ### Questions:
 
 1. What pattern or difference do you see in the chart?
+    All of the majors are within the bounds of reach other. The only exceptions are Data Science's min and Math's max.
 2. What might explain it?
+  The courses are all very similar and use similar techniques, so it makes sense that students of the same major of the same school would generally have similar opinions.
 3. Do you think this chart is accurate?
+  I don't know, I'm not a surveyist and I generally am not the person to ask for a take on the general population. Probably not, though.
 4. Why? Why not?
-
+  There are only 20 students taking the survey. That is WAY to little to get an accurate read on four majors.
 ## Step 5: Questions on Git, GitHub and R Markdown
 
 ### Questions:
 
 1. What does git add do?
+  
 2. What is the difference between git commit and git push?
+  
 3. Why is it useful to use GitHub for your code or data projects?
+  
 4. How could version control help when collaborating?
 5. What is the difference between a code chunk and regular text in R Markdown?
 6. How could R Markdown help you explain your analysis to someone else?
 
 ### Answers:
-
+1. Git add saves the changes of the new file and prepares it to be commited and pushed.
+2. Git commit saves the file in the current state it is in. Git push sends it to the repository.
+3. Helps separate different code into different files and repositories, and is open to multiple different coding languages.
+4. If two people use different versions it's better to change to keep the same version. This way there is no confusion.
+5. A code chunk runs code. regular text does not, and will not run code no matter how much of it you put there.
+6. It could help you make graphs and charts that help visualize the data. It can also make lists that do the same.
